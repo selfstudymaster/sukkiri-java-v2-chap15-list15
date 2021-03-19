@@ -1,6 +1,6 @@
 package main;
 
-import unsupportedmusicfileexception.UnsupportedMusicFileException;
+import java.io.IOException;
 
 // chap15 例外
 // list15-01
@@ -86,16 +86,78 @@ import unsupportedmusicfileexception.UnsupportedMusicFileException;
 //list15-07 オリジナル例外クラスを利用する
 //import java.io.*;
 //import unsupportedmusicfileexception.UnsupportedMusicFileException;
+//public class Main {
+//	public static void main(String[] args) {
+//		try {
+//			// 試験的に例外を発生させる
+//			throw new UnsupportedMusicFileException("未対応のファイル形式です");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} // エラーメッセージ
+//		  // unsupportedmusicfileexception.UnsupportedMusicFileException: 未対応のファイル形式です
+//		  // at main.Main.main(Main.java:93)
+//	}
+//}
+
+// practice15-01
+//public class Main {
+//	public static void main(String[] args) {
+//		public String s = null;
+//		System.out.println(s.length()); // 意図的にエラーを出してます
+//	}
+//}
+
+// practice15-02
+//public class Main {
+//	public static void main(String[] args) {
+//
+//		try {
+//
+//			String s = null;
+//			System.out.println(s.length());
+//
+//		} catch (NullPointerException e) {
+//
+//			System.out.println("NullPointerException 例外をcatchしました");
+//			System.out.println("ーースタックトレース(ここから)ーー");
+//			e.printStackTrace();
+//			System.out.println("ーースタックトレース(ここまで)ーー");
+//			// エラ〜メッセージ
+//			// NullPointerException 例外をcatchしました
+//			// ーースタックトレース(ここから)ーー
+//			// java.lang.NullPointerException
+//			// at main.Main.main(Main.java:115)
+//			// ーースタックトレース(ここまで)ーー
+//
+//		}
+//	}
+//}
+
+//practice15-03
+//public class Main {
+//	public static void main(String[] args) {
+//
+//		try {
+//			// APIリファレンスから送出例外を調べる
+//			int i = Integer.parseInt("三");
+//
+//		} catch (NumberFormatException e) {
+//
+//			System.out.println("例外 NumberFormatException 例外をcatchしました");
+//
+//		}
+//	}
+//}
+
+//practice15-04
 public class Main {
-	public static void main(String[] args) {
-		try {
-			// 試験的に例外を発生させる
-			throw new UnsupportedMusicFileException("未対応のファイル形式です");
-		} catch (Exception e) {
-			e.printStackTrace();
-		} // エラーメッセージ
-		  // unsupportedmusicfileexception.UnsupportedMusicFileException: 未対応のファイル形式です
-		  // at main.Main.main(Main.java:93)
+	public static void main(String[] args) throws IOException {
+		System.out.println("プログラムが起動しました");
+		throw new IOException(); // 起動直後に異常終了させる
+		// 表示結果:プログラムが起動しました
+		// エラ〜メッセージも出力される
+		// Exception in thread "main" java.io.IOException
+		// at main.Main.main(Main.java:156)
+
 	}
 }
-
